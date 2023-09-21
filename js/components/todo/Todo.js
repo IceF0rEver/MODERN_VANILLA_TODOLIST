@@ -1,3 +1,4 @@
+import getTemplate from './template.js';
 export default class {
     constructor(data){
         this.id = data.id;
@@ -5,5 +6,7 @@ export default class {
         this.completed = data.completed;
         this.createdAt = data.createdAt;
     }
-    
+    render() {
+        return getTemplate(this);
+    }
 }

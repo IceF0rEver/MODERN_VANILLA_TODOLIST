@@ -1,10 +1,11 @@
 import DB from "../../DB";
 import Todo from "../todo/Todo";
+import getTemplate from './template.js';
 
 export default class {
     constructor(data){
         DB.setApiURL(data.apiURL);
-        this.elf = document.querySelector(data.domELT);
+        this.elt = document.querySelector(data.elt);
         this.todos = [];
         this.loadTodos();
     }
@@ -14,6 +15,7 @@ export default class {
         this.render();
     }
     render() {
-        console.table(this.todos);
+        this.elt.innerHTML = getTemplate(this);
+        // console.table(this.todos);
     }
 }
